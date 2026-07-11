@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Passkey Message</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .top-images {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .top-images img {
+      height: 150px;
+      display: block;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .play-btn {
+      margin-top: 50px;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      background-color: #ff1493;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .share-btn {
+      margin-top: 30px;
+      padding: 20px 40px;
+      font-size: 1.5rem;
+      background-color: #00bfff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-images">
+    <img src="MicroSoft.png" alt="Microsoft Image">
+    <img src="equal_pink_Sign.png" alt="Equal Pink Sign">
+    <img src="poop.png" alt="Poop Image">
+  </div>
+
+  <div class="container">
+    Using a Passkey for Microsoft really sucks. I am not able to view my actual password.
+    Not only that but trying to login to Microsoft can be a challenge. I use my correct
+    password to login and it still says it is wrong. This has been going on for years.
+    I will change my password and it will still say the new password is wrong. Once I
+    had to wait 30 days to use my Xbox to login to my account because of this password
+    issue. At the moment I want to login on my laptop because for some reason my
+    passwords for my emails have deleted themselves; which is another issue. I try to
+    login to my Microsoft account on my laptop and it is saying my password is wrong.
+    I can use this same password to login into my Microsoft account on my MacBook.
+  </div>
+
+  <!-- ⭐ Play Game Button -->
+  <a href="game.html">
+    <button class="play-btn">Play Micro Fall</button>
+  </a>
+
+  <!-- ⭐ Share Button -->
+  <button id="shareBtn" class="share-btn">Share This Website</button>
+
+  <!-- ⭐ Safari‑Safe Share Script -->
+  <script>
+    document.getElementById("shareBtn").onclick = function () {
+      const url = window.location.href;
+
+      const menu = document.createElement("div");
+      menu.style.position = "fixed";
+      menu.style.top = "50%";
+      menu.style.left = "50%";
+      menu.style.transform = "translate(-50%, -50%)";
+      menu.style.background = "#222";
+      menu.style.padding = "20px";
+      menu.style.borderRadius = "10px";
+      menu.style.color = "white";
+      menu.style.textAlign = "center";
+      menu.style.zIndex = "9999";
+      menu.style.width = "300px";
+
+      menu.innerHTML = `
+        <h2>Share This Website</h2>
+        <p style="font-size: 1rem; margin-bottom: 20px;">Choose how you want to share:</p>
+
+        <button id="smsShare" style="padding:10px 20px; margin:10px; width:80%;">Text Message</button>
+
+        <button id="copyShare" style="padding:10px 20px; margin:10px; width:80%;">Copy Link</button>
+
+        <button id="closeShare" style="padding:10px 20px; margin-top:20px; background:#ff1493; width:80%;">Close</button>
+      `;
+
+      document.body.appendChild(menu);
+
+      // ⭐ SMS (Safari supports this)
+      document.getElementById("smsShare").onclick = function () {
+        window.location.href = `sms:?&body=Check this out: ${url}`;
+      };
+
+      // ⭐ Copy Link (Safari supports this)
+      document.getElementById("copyShare").onclick = function () {
+        navigator.clipboard.writeText(url);
+        alert("Link copied to clipboard!");
+      };
+
+      // ⭐ Close popup
+      document.getElementById("closeShare").onclick = function () {
+        menu.remove();
+      };
+    };
+  </script>
+
+</body>
+</html>
