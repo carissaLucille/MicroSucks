@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Micro Fall Game</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ⭐ Exit Button -->
+  <button id="exitBtn"
+  style="
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #ff1493;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  ">
+    Exit Game
+  </button>
+
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+  <script src="microfall.js"></script>
+
+  <!-- ⭐ Automatic Exit Script -->
+  <script>
+    document.getElementById("exitBtn").onclick = function () {
+      window.location.href = "Microsoft_Sucks.html";  
+    };
+  </script>
+
+</body>
+</html>
+
+</html>
